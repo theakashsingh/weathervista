@@ -293,6 +293,13 @@ const App = () => {
     if (storedHistory) {
       setSearchHistory(storedHistory);
     }
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+        })
+      }
   }, []);
 
   return (
@@ -332,7 +339,7 @@ const App = () => {
       <div className="recent-searches">
         <h3>Recent Searches</h3>
         {searchHistory.map((location, index) => (
-          <div key={index} onClick={() => handleHistoryClick(location)}>
+          <div className='recent-search' key={index} onClick={() => handleHistoryClick(location)}>
             {location.address}
           </div>
         ))}

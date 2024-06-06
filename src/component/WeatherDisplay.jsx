@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const WeatherDisplay = ({ latitude, longitude, unit }) => {
   const [weatherData, setWeatherData] = useState(null);
   const [timeOfDay, setTimeOfDay] = useState('day');
-  const API_KEY = "YOUR_OPENWEATHER_API_KEY";
+  const API_KEY = "57d7f862509fad9fdbf6e938538012f1";
 
   useEffect(() => {
     const fetchWeatherData = async () => {
